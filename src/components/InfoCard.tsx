@@ -27,15 +27,19 @@ export function InfoCard() {
 }
 
 var socialButtons = [
-  { icon: <IconBrandGithub size={20} />, url: "" },
-  { icon: <IconBrandLinkedin size={20} />, url: "" },
-  { icon: <IconBrandReddit size={20} />, url: "" },
+  { icon: <IconBrandGithub size={20} />, url: "https://github.com/cladamos" },
+  { icon: <IconBrandLinkedin size={20} />, url: "https://www.linkedin.com/in/gökberk-çalışkan" },
+  { icon: <IconBrandReddit size={20} />, url: "https://www.reddit.com/user/cladamos" },
 ]
 
 type SocialButtonProps = {
   icon: React.ReactNode
   url: string
 }
-function SocialButton({ icon }: SocialButtonProps) {
-  return <button className="bg-button text-text-color p-2 rounded-lg">{icon}</button>
+function SocialButton({ icon, url }: SocialButtonProps) {
+  return (
+    <button onClick={() => window.open(url, "_blank")} className="bg-button text-text-color p-2 rounded-lg cursor-pointer active:translate-y-0.5">
+      {icon}
+    </button>
+  )
 }
