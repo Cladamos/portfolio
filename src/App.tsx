@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./index.css"
 import { InfoCard } from "./components/InfoCard"
+import { Projects } from "./components/Projects"
 
 function App() {
   const [isMouseOver, setIsMouseOver] = useState(false)
@@ -14,7 +15,10 @@ function App() {
       <div className={`dot-bg_glow ${isMouseOver ? "opacity-100" : "opacity-0"}`} />
       <div className="h-screen w-screen relative z-1">
         <div className="container max-w-4xl mx-auto py-20">
-          <InfoCard />
+          <div className="flex flex-col gap-6">
+            <InfoCard />
+            <Projects />
+          </div>
         </div>
       </div>
     </div>
