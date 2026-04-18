@@ -1,34 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @import "tailwindcss";
 
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --color-card: #1e1e2e;
+  --color-button: #313244;
+  --color-text-color: #cdd6f4;
+  --color-text-secondary-color: #a6adc8;
+  --color-accent-color: #f38ba8;
+}
 
 .dot-bg {
   background-color: #11111b;
-  background-size: 2vw 2vw;
-  background-image: radial-gradient(
-    circle,
-    #313244 1.5px,
-    transparent 1.5px
-  );
+  background-size: 32px 32px;
+  background-image: radial-gradient(circle, #313244 1.5px, transparent 1.5px);
 }
 .dot-bg_glow {
   position: absolute;
   inset: 0;
 
-  background-size: 2vw 2vw;
-  background-image: radial-gradient(
-    circle,
-    #9399b2 1.5px,
-    transparent 1.5px
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 150px at var(--mx) var(--my),
-    black 0%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    circle 150px at var(--mx) var(--my),
-    black 0%,
-    transparent 100%
-  );
+  background-size: 32px 32px;
+  background-image: radial-gradient(circle, #9399b2 1.5px, transparent 1.5px);
+  -webkit-mask-image: radial-gradient(circle 150px at var(--mx) var(--my), black 0%, transparent 100%);
+  mask-image: radial-gradient(circle 150px at var(--mx) var(--my), black 0%, transparent 100%);
 }
-

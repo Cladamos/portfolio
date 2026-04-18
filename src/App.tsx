@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "./index.css"
+import { InfoCard } from "./components/InfoCard"
 
 function App() {
   const [isMouseOver, setIsMouseOver] = useState(false)
@@ -11,8 +12,10 @@ function App() {
   return (
     <div className="dot-bg" onMouseMove={handleMouseMove} onMouseEnter={() => setIsMouseOver(true)} onMouseLeave={() => setIsMouseOver(false)}>
       <div className={`dot-bg_glow ${isMouseOver ? "opacity-100" : "opacity-0"}`} />
-      <div className="flex h-screen w-screen items-center justify-center relative z-1">
-        <p className="text-3xl font-bold underline bg-red-300">Hello World</p>
+      <div className="h-screen w-screen relative z-1">
+        <div className="container max-w-4xl mx-auto py-20">
+          <InfoCard />
+        </div>
       </div>
     </div>
   )
