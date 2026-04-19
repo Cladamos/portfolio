@@ -6,6 +6,7 @@
 @theme {
   --font-manrope: "Manrope", sans-serif;
   --font-inter: "Inter", sans-serif;
+  --color-bg-color: #11111b;
   --color-card: #1e1e2e;
   --color-button: #313244;
   --color-text-color: #cdd6f4;
@@ -19,6 +20,7 @@
   background-size: 32px 32px;
   background-image: radial-gradient(circle, #313244 1.5px, transparent 1.5px);
 }
+
 .dot-bg_glow {
   position: absolute;
   inset: 0;

@@ -2,9 +2,9 @@ import { IconBrandGithub, IconBrandLinkedin, IconBrandReddit } from "@tabler/ico
 
 export function InfoCard() {
   return (
-    <div className="bg-card rounded-2xl py-12 px-16 border-2 border-accent-color">
+    <div className="bg-card rounded-2xl py-12 px-6 md:px-16 border-2 border-accent-color">
       <div className="flex text-center md:flex-row md:text-start flex-col gap-6 justify-between items-center">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           <p className="text-4xl font-manrope font-bold text-text-color">
             Hi, I'm <span className="text-accent-color">Gökberk</span>
           </p>
