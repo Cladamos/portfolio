@@ -1,7 +1,6 @@
 import { IconArrowNarrowRightDashed } from "@tabler/icons-react"
 import { ProjectCard } from "./ProjectCard"
-import { useLocalStorage } from "usehooks-ts"
-import { useEffect } from "react"
+import { useQuery } from "@tanstack/react-query"
 
 export type Repo = {
   name: string
@@ -30,17 +29,14 @@ async function getRepos(): Promise<Repo[]> {
 }
 
 export function Projects() {
-  const [repos, setRepos] = useLocalStorage<Repo[]>("repos", [])
-  const [repoTimeStamp, setRepoTimeStamp] = useLocalStorage<number>("repo-time-stamp", 0)
-
-  useEffect(() => {
-    if (Date.now() - repoTimeStamp > 60 * 60 * 1000) {
-      getRepos().then((data) => {
-        setRepos(data)
-        setRepoTimeStamp(Date.now())
-      })
-    }
-  }, [])
+  const {
+    data: repos,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["repos"],
+    queryFn: getRepos,
+  })
 
   return (
     <div className="bg-card rounded-2xl py-12 px-6 md:px-16 border-2 border-accent-color-2">
@@ -57,9 +53,11 @@ export function Projects() {
         </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-        {repos.map((repo) => (
-          <ProjectCard repo={repo} />
-        ))}
+        {repos && !isLoading && !isError ? (
+          repos.map((repo) => <ProjectCard key={repo.name} repo={repo} />)
+        ) : (
+          <div className="bg-button rounded-2xl py-6 px-8 border-2 border-button h-40" />
+        )}
       </div>
     </div>
   )

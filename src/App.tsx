@@ -12,7 +12,7 @@ function App() {
   }
   return (
     <div className="dot-bg" onMouseMove={handleMouseMove} onMouseEnter={() => setIsMouseOver(true)} onMouseLeave={() => setIsMouseOver(false)}>
-      <div className={`dot-bg_glow ${isMouseOver ? "opacity-100" : "opacity-0"}`} />
+      <div className={`hidden md:flex dot-bg_glow ${isMouseOver ? "opacity-100" : "opacity-0"}`} />
       <div className="min-h-screen w-full relative z-1">
         <div className="container max-w-4xl mx-auto px-4 py-20">
           <div className="flex flex-col justify-center">
