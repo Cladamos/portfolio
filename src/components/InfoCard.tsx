@@ -16,7 +16,7 @@ export function InfoCard() {
           </div>
           <div className="flex flex-row gap-3 justify-center md:justify-start">
             {socialButtons.map((button) => (
-              <SocialButton icon={button.icon} url={button.url} />
+              <SocialButton key={button.url} icon={button.icon} url={button.url} />
             ))}
           </div>
         </div>
