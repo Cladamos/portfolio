@@ -1,5 +1,7 @@
 import { IconArrowNarrowRightDashed } from "@tabler/icons-react"
 import { ProjectCard } from "./ProjectCard"
+import { useLocalStorage } from "usehooks-ts"
+import { useEffect } from "react"
 
 export type Repo = {
   name: string
@@ -8,16 +10,38 @@ export type Repo = {
   url: string
 }
 
-//TODO: pull repo stars from github api
-//TODO: add tags
-var repos: Repo[] = [
-  { name: "clawea", description: "weather forecast tui", stars: 52, url: "https://github.com/cladamos/clawea" },
-  { name: "solcl", description: "solar system visualization tui", stars: 52, url: "https://github.com/cladamos/solcl" },
-  { name: "clatune", description: "tuner tui", stars: 52, url: "https://github.com/cladamos/clatune" },
-  { name: "clakter", description: "simple dnd tool", stars: 52, url: "https://github.com/cladamos/clakter" },
-]
+async function getRepos(): Promise<Repo[]> {
+  const res = await fetch("https://api.github.com/users/cladamos/repos")
+  const data = await res.json()
+  const wantedRepos = data.filter(
+    (repo: Repo) => repo.name === "clawea" || repo.name === "solcl" || repo.name === "clatune" || repo.name === "clakter",
+  )
+  var repoData: Repo[] = []
+  for (const repo of wantedRepos) {
+    repoData.push({
+      name: repo.name,
+      description: repo.description,
+      stars: repo.stargazers_count,
+      url: repo.html_url,
+    })
+  }
+  repoData.sort((a, b) => b.stars - a.stars)
+  return repoData
+}
 
 export function Projects() {
+  const [repos, setRepos] = useLocalStorage<Repo[]>("repos", [])
+  const [repoTimeStamp, setRepoTimeStamp] = useLocalStorage<number>("repo-time-stamp", 0)
+
+  useEffect(() => {
+    if (Date.now() - repoTimeStamp > 60 * 60 * 1000) {
+      getRepos().then((data) => {
+        setRepos(data)
+        setRepoTimeStamp(Date.now())
+      })
+    }
+  }, [])
+
   return (
     <div className="bg-card rounded-2xl py-12 px-6 md:px-16 border-2 border-accent-color-2">
       <div className="flex flex-col md:flex-row md:justify-between items-center">
