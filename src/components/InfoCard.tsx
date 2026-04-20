@@ -20,7 +20,7 @@ export function InfoCard() {
             ))}
           </div>
         </div>
-        <div className="order-first md:order-last bg-[url('src/assets/profile.jpeg')] w-40 h-40 rounded-full bg-cover bg-position-[bottom_2rem]"></div>
+        <div className="order-first md:order-last bg-[url('/profile.jpeg')] w-40 h-40 rounded-full bg-cover bg-position-[bottom_2rem]"></div>
       </div>
     </div>
   )
