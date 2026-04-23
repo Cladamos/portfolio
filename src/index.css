@@ -27,6 +27,7 @@
 
   background-size: 32px 32px;
   background-image: radial-gradient(circle, #9399b2 1.5px, transparent 1.5px);
+  background-position: 0 calc(-1 * var(--scroll-y, 0px));
   -webkit-mask-image: radial-gradient(circle 150px at var(--mx) var(--my), black 0%, transparent 100%);
   mask-image: radial-gradient(circle 150px at var(--mx) var(--my), black 0%, transparent 100%);
 }

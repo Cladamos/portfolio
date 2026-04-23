@@ -1,15 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./index.css"
 import { InfoCard } from "./components/InfoCard"
 import { Projects } from "./components/Projects"
 
 function App() {
   const [isMouseOver, setIsMouseOver] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      document.documentElement.style.setProperty("--scroll-y", `${window.scrollY}px`)
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const el = e.currentTarget
     el.style.setProperty("--mx", `${e.clientX}px`)
     el.style.setProperty("--my", `${e.clientY}px`)
   }
+
   return (
     <div className="dot-bg" onMouseMove={handleMouseMove} onMouseEnter={() => setIsMouseOver(true)} onMouseLeave={() => setIsMouseOver(false)}>
       <div className={`hidden md:flex dot-bg_glow ${isMouseOver ? "opacity-100" : "opacity-0"}`} />
