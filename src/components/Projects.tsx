@@ -7,6 +7,7 @@ export type Repo = {
   description: string
   stars: number
   url: string
+  language: string
 }
 
 async function getRepos(): Promise<Repo[]> {
@@ -22,6 +23,7 @@ async function getRepos(): Promise<Repo[]> {
       description: repo.description,
       stars: repo.stargazers_count,
       url: repo.html_url,
+      language: repo.language,
     })
   }
   repoData.sort((a, b) => b.stars - a.stars)
