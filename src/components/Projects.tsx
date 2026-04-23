@@ -57,7 +57,7 @@ export function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
         {repos && !isLoading && !isError
           ? repos.map((repo) => <ProjectCard key={repo.name} repo={repo} />)
-          : Array.from({ length: 4 }).map((_, i) => <div key={i} className="bg-button rounded-2xl py-6 px-8 border-2 border-button h-25" />)}
+          : Array.from({ length: 4 }).map((_, i) => <div key={i} className="bg-button rounded-2xl py-6 px-8 border-2 border-button h-28" />)}
       </div>
     </div>
   )

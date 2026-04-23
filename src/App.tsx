@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import "./index.css"
-import { InfoCard } from "./components/InfoCard"
+import { Info } from "./components/Info"
 import { Projects } from "./components/Projects"
+import { AboutMe } from "./components/AboutMe"
 
 function App() {
   const [isMouseOver, setIsMouseOver] = useState(false)
@@ -24,12 +25,14 @@ function App() {
     <div className="dot-bg" onMouseMove={handleMouseMove} onMouseEnter={() => setIsMouseOver(true)} onMouseLeave={() => setIsMouseOver(false)}>
       <div className={`hidden md:flex dot-bg_glow ${isMouseOver ? "opacity-100" : "opacity-0"}`} />
       <div className="min-h-screen w-full relative z-1">
-        <div className="container max-w-4xl mx-auto px-4 py-20">
+        <div className="container max-w-4xl mx-auto px-4 py-16">
           <div className="flex flex-col justify-center">
-            <InfoCard />
+            <Info />
             {/*I don't want to showcase dotted background with using gap*/}
-            <div className="bg-bg-color h-6"></div>
+            <div className="bg-bg-color h-8"></div>
             <Projects />
+            <div className="bg-bg-color h-8"></div>
+            <AboutMe />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { IconBrandGithub, IconBrandLinkedin, IconBrandReddit } from "@tabler/icons-react"
 
-export function InfoCard() {
+export function Info() {
   return (
     <div className="bg-card rounded-2xl py-12 px-6 md:px-16 border-2 border-accent-color">
       <div className="flex text-center md:flex-row md:text-start flex-col gap-6 justify-between items-center">

@@ -15,7 +15,7 @@ export function ProjectCard({ repo }: { repo: Repo }) {
             <p className="text-xs font-inter text-text-color">{repo.stars}</p>
           </div>
         </div>
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex h-6 flex-row justify-between items-center">
           <p className="text-sm font-inter text-text-secondary-color">{repo.description}</p>
           <div className="bg-card opacity-50 rounded-full px-3 py-1">
             <p className="text-xs text-text-color">{repo.language}</p>
