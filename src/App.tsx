@@ -3,6 +3,7 @@ import "./index.css"
 import { Info } from "./components/Info"
 import { Projects } from "./components/Projects"
 import { AboutMe } from "./components/AboutMe"
+import { TechStack } from "./components/TechStack"
 
 function App() {
   const [isMouseOver, setIsMouseOver] = useState(false)
@@ -31,6 +32,8 @@ function App() {
             {/*I don't want to showcase dotted background with using gap*/}
             <div className="bg-bg-color h-8"></div>
             <Projects />
+            <div className="bg-bg-color h-8"></div>
+            <TechStack />
             <div className="bg-bg-color h-8"></div>
             <AboutMe />
           </div>

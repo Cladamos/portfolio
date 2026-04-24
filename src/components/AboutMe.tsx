@@ -2,13 +2,13 @@ import { IconCode, IconDice, IconMusic } from "@tabler/icons-react"
 
 type Hobby = {
   text: string
-  icon: React.ReactNode
+  icon: React.ElementType
 }
 
 var hobbies: Hobby[] = [
-  { text: "Coding", icon: <IconCode className="text-card" /> },
-  { text: "Bass", icon: <IconMusic className="text-card" /> },
-  { text: "TTRPG", icon: <IconDice className="text-card" /> },
+  { text: "Coding", icon: IconCode },
+  { text: "Bass", icon: IconMusic },
+  { text: "TTRPG", icon: IconDice },
 ]
 
 export function AboutMe() {
@@ -26,8 +26,10 @@ export function AboutMe() {
           <div className="flex flex-col gap-4 w-full">
             {hobbies.map((hobby) => (
               <div className="bg-button rounded-2xl flex flex-row gap-2 items-center">
-                <div className="flex p-2 justify-center items-center bg-accent-color-3 h-full w-[20%] rounded-l-2xl">{hobby.icon}</div>
-                <p className="px-1 text-md font-inter text-text-secondary-color">{hobby.text}</p>
+                <div className="flex p-2 justify-center items-center bg-accent-color-3 h-full w-[20%] rounded-l-2xl">
+                  <hobby.icon className="text-card" />
+                </div>
+                <p className="px-1 text-md font-inter font-medium text-text-secondary-color">{hobby.text}</p>
               </div>
             ))}
           </div>

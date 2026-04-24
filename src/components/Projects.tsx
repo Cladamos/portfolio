@@ -1,4 +1,5 @@
 import { IconArrowNarrowRightDashed } from "@tabler/icons-react"
+
 import { ProjectCard } from "./ProjectCard"
 import { useQuery } from "@tanstack/react-query"
 
@@ -10,14 +11,14 @@ export type Repo = {
   language: string
 }
 
+var wantedRepos = ["clawea", "solcl", "clatune", "clakter"]
+
 async function getRepos(): Promise<Repo[]> {
   const res = await fetch("https://api.github.com/users/cladamos/repos")
   const data = await res.json()
-  const wantedRepos = data.filter(
-    (repo: Repo) => repo.name === "clawea" || repo.name === "solcl" || repo.name === "clatune" || repo.name === "clakter",
-  )
+  const repos = data.filter((repo: Repo) => wantedRepos.includes(repo.name))
   var repoData: Repo[] = []
-  for (const repo of wantedRepos) {
+  for (const repo of repos) {
     repoData.push({
       name: repo.name,
       description: repo.description,
